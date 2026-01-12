@@ -1,0 +1,9 @@
+Adding a song under the Genre of Lofi adds the song to Hype when my Favorie Genre is Lofi, it should go to chill. 
+
+when adding songs they are going in wrong playlist
+
+hype ratio is alway 1 
+
+average energy might be only counting hype and not all songs
+
+search needs an exact match and not partial. 
