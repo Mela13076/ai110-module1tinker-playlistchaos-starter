@@ -1,3 +1,4 @@
+from collections import Counter
 from typing import Dict, List, Optional, Tuple
 
 Song = Dict[str, object]
@@ -147,18 +148,11 @@ def compute_playlist_stats(playlists: PlaylistMap) -> Dict[str, object]:
 
 def most_common_artist(songs: List[Song]) -> Tuple[str, int]:
     """Return the most common artist and count."""
-    counts: Dict[str, int] = {}
-    for song in songs:
-        artist = str(song.get("artist", ""))
-        if not artist:
-            continue
-        counts[artist] = counts.get(artist, 0) + 1
-
-    if not counts:
+    artists = [str(song.get("artist", "")) for song in songs if song.get("artist")]
+    if not artists:
         return "", 0
 
-    items = sorted(counts.items(), key=lambda item: item[1], reverse=True)
-    return items[0]
+    return Counter(artists).most_common(1)[0]
 
 
 def search_songs(
